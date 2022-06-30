@@ -1,5 +1,4 @@
 const app = require('whatsapp-web.js')
-const twitosu = require('twitosu-framework')
 const fs = require(`fs`)
 const db = require(`quick.db`)
 require(`dotenv`)
