@@ -1,0 +1,120 @@
+const app = require('whatsapp-web.js')
+const db = require('quick.db')
+const cntr = require(`country-code-lookup`)
+
+const filters = ['-s', '-std', '-standard', '-t', '-taiko', '-c', '-catch', '-ctb', '-m', '-mania']
+
+const mods_enum = {
+    ''    : 0,
+    'NF'  : 1,
+    'EZ'  : 2,
+    'TD'  : 4,
+    'HD'  : 8,
+    'HR'  : 16,
+    'SD'  : 32,
+    'DT'  : 64,
+    'RX'  : 128,
+    'HT'  : 256,
+    'NC'  : 512,
+    'FL'  : 1024,
+    'AT'  : 2048,
+    'SO'  : 4096,
+    'AP'  : 8192,
+    'PF'  : 16384,
+    '4K'  : 32768,
+    '5K'  : 65536,
+    '6K'  : 131072,
+    '7K'  : 262144,
+    '8K'  : 524288,
+    'FI'  : 1048576,
+    'RD'  : 2097152,
+    'LM'  : 4194304,
+    '9K'  : 16777216,
+    '10K' : 33554432,
+    '1K'  : 67108864,
+    '3K'  : 134217728,
+    '2K'  : 268435456,
+    'V2'  : 536870912,
+};
+
+function getRank(current_rank) {
+    if(current_rank == 'XH') {
+        return 'Silver SS'
+    }
+    if(current_rank == 'X') {
+        return 'SS'
+    }
+    if(current_rank == 'SH') {
+        return 'Silver S'
+    }
+    if(current_rank == 'F') {
+        return 'Fail'
+    }
+    else {
+        return current_rank
+    }
+}
+function getMods(enabled_mods){
+    var return_array = [];
+    for(var mod in mods_enum){
+        if((mods_enum[mod] & enabled_mods) != 0)
+            return_array.push(mod);
+    }
+    if(return_array == '') return return_array.push('NM')
+    return return_array;
+}
+
+module.exports = {
+    name: 'rs',
+    description: 'idk',
+    async execute(message, args, client) {
+        function getUsername(args){
+            if(!args[1]) {
+                return db.get(`osuprofile_${message.author}`)
+            }else{
+                var name = args.slice(1).filter((word) => !filters.includes(word))
+                if(name == "") {
+                    return db.get(`osuprofile_${message.author}`)
+                }
+                else{
+                    return name
+                }
+            }
+        }
+        function getMode(){
+            if(args.includes("-s" || "-std" || '-standard')) {
+                return 0
+            }
+            else if(args.includes("-t" || "-taiko")) {
+                return 1
+            }
+            else if(args.includes("-c" || "-ctb" || '-catch')) {
+                return 2
+            }
+            else if(args.includes("-m" || "-mania")) {
+                return 3
+            }
+            else {
+                return db.get(`user_${message.author}_dgm`) || 0
+            }
+    }
+
+    if(db.get(`osuprofile_${message.author}`) || args[1]) {
+        fetch(`https://osu.ppy.sh/api/get_user_recent?k=${process.env.osuapi}&u=${getUsername(args)}&m=${getMode()}`).then(res => res.json())
+            .then(output => {
+                const res = output[0]
+                const text =
+`→ Beatmap Info
+Beatmap ID: ${res.beatmap_id}
+Link: https://osu.ppy.sh/b/${res.beatmap_id}
+→ Score Info
+Score: ${res.score}
+Rank: ${getRank(res.rank)}
+Mods: ${getMods(res.enabled_mods)}
+Hitcount: [300: ${res.count300}, ${res.countgeki}], [100: ${res.count300}, ${res.countkatu}], [50: ${res.count50}], [Miss: ${res.countmiss}]
+`
+                client.sendMessage(message.from, text)
+            })
+    }
+}
+}

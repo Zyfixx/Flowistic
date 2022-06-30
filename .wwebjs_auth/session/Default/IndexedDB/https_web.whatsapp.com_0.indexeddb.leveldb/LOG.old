@@ -1,0 +1,13 @@
+2022/06/18-05:52:31.166 1da8 Reusing MANIFEST F:\Saviola\Coding\GitHub Desktop\Shinkai\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/06/18-05:52:31.167 1da8 Recovering log #607
+2022/06/18-05:52:31.277 1da8 Reusing old log F:\Saviola\Coding\GitHub Desktop\Shinkai\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000607.log 
+2022/06/18-05:52:51.703 2aac Level-0 table #627: started
+2022/06/18-05:52:51.847 2aac Level-0 table #627: 1172091 bytes OK
+2022/06/18-05:52:51.874 2aac Delete type=0 #607
+2022/06/18-05:52:51.900 2aac Compacting 1@0 + 0@1 files
+2022/06/18-05:52:52.205 2aac Generated table #628@0: 15101 keys, 661731 bytes
+2022/06/18-05:52:52.289 2aac Generated table #629@0: 1136 keys, 20321 bytes
+2022/06/18-05:52:52.320 2aac Compacted 1@0 + 0@1 files => 682052 bytes
+2022/06/18-05:52:52.383 2aac compacted to: files[ 0 2 14 0 0 0 0 ]
+2022/06/18-05:52:52.440 2aac Delete type=2 #627
+2022/06/18-05:52:55.434 2aac Compacting 1@1 + 10@2 files

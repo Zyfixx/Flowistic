@@ -1,0 +1,22 @@
+const username = args.slice(1).join(' ') || db.get(`osuprofile_${message.author}`)
+        fetch(`https://osu.ppy.sh/api/get_user?k=${process.env.osuapi}&u=${username}`).then(res => res.json())
+        .then(output => {
+            const user = output[0];
+            if(!user.accuracy) {
+                message.reply("User not found")
+            } else {
+            var userAcc = parseFloat(user.accuracy)
+            var fixedAcc = userAcc.toFixed(2)
+            var levelpercent = 0 + user.level.substring( + user.level.indexOf("."));
+            var levelprogress = Math.floor((levelpercent / 1) * 100)
+            const countryName = cntr.byInternet(`${user.country}`).country
+            client.sendMessage(message.from, 
+`User : ${user.username} (${user.user_id})
+Country : ${countryName}
+PP : ${Math.round(`${user.pp_raw}`)}pp
+Accuracy : ${fixedAcc}%
+Rank : #${user.pp_rank} (Country: #${user.pp_country_rank})
+Playcount : ${user.playcount}
+Level : ${parseInt(user.level)} (${levelprogress}%)`)
+            }
+        })
