@@ -1,5 +1,5 @@
 const app = require('whatsapp-web.js')
-const openai = require('openai')
+//const openai = require('openai')
 
 module.exports = {
     name: 'ai', // Command Name

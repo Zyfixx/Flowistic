@@ -1,6 +1,6 @@
 const app = require('whatsapp-web.js')
 const wwebs = require('@deathabyss/wwebjs-sender')
-const { fromBlendMode } = require('ag-psd/dist/helpers')
+//const { fromBlendMode } = require('ag-psd/dist/helpers')
 
 module.exports = {
     name: 'buttontest',

@@ -1,13 +1,70 @@
-2022/06/18-05:52:31.166 1da8 Reusing MANIFEST F:\Saviola\Coding\GitHub Desktop\Shinkai\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2022/06/18-05:52:31.167 1da8 Recovering log #607
-2022/06/18-05:52:31.277 1da8 Reusing old log F:\Saviola\Coding\GitHub Desktop\Shinkai\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000607.log 
-2022/06/18-05:52:51.703 2aac Level-0 table #627: started
-2022/06/18-05:52:51.847 2aac Level-0 table #627: 1172091 bytes OK
-2022/06/18-05:52:51.874 2aac Delete type=0 #607
-2022/06/18-05:52:51.900 2aac Compacting 1@0 + 0@1 files
-2022/06/18-05:52:52.205 2aac Generated table #628@0: 15101 keys, 661731 bytes
-2022/06/18-05:52:52.289 2aac Generated table #629@0: 1136 keys, 20321 bytes
-2022/06/18-05:52:52.320 2aac Compacted 1@0 + 0@1 files => 682052 bytes
-2022/06/18-05:52:52.383 2aac compacted to: files[ 0 2 14 0 0 0 0 ]
-2022/06/18-05:52:52.440 2aac Delete type=2 #627
-2022/06/18-05:52:55.434 2aac Compacting 1@1 + 10@2 files
+2024/03/13-22:18:45.328 4258 Reusing MANIFEST C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/03/13-22:18:45.329 4258 Recovering log #828
+2024/03/13-22:18:45.512 4258 Reusing old log C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000828.log 
+2024/03/13-22:19:05.386 2d68 Level-0 table #847: started
+2024/03/13-22:19:05.438 2d68 Level-0 table #847: 1180501 bytes OK
+2024/03/13-22:19:05.443 2d68 Delete type=0 #828
+2024/03/13-22:19:05.889 2d68 Compacting 1@0 + 0@1 files
+2024/03/13-22:19:05.997 2d68 Generated table #848@0: 23376 keys, 450136 bytes
+2024/03/13-22:19:06.014 2d68 Generated table #849@0: 5678 keys, 157422 bytes
+2024/03/13-22:19:06.014 2d68 Compacted 1@0 + 0@1 files => 607558 bytes
+2024/03/13-22:19:06.015 2d68 compacted to: files[ 0 2 16 0 0 0 0 ]
+2024/03/13-22:19:12.026 2d68 Compacting 1@1 + 10@2 files
+2024/03/13-22:19:12.132 2d68 Generated table #850@1: 84295 keys, 2233124 bytes
+2024/03/13-22:19:12.234 2d68 Generated table #851@1: 97989 keys, 2249678 bytes
+2024/03/13-22:19:12.330 2d68 Generated table #852@1: 76729 keys, 2374920 bytes
+2024/03/13-22:19:12.393 2d68 Generated table #853@1: 17407 keys, 2203695 bytes
+2024/03/13-22:19:12.426 2d68 Generated table #854@1: 2349 keys, 2151022 bytes
+2024/03/13-22:19:12.459 2d68 Generated table #855@1: 2473 keys, 2151281 bytes
+2024/03/13-22:19:12.489 2d68 Generated table #856@1: 2393 keys, 2150414 bytes
+2024/03/13-22:19:12.543 2d68 Generated table #857@1: 17271 keys, 2201205 bytes
+2024/03/13-22:19:12.642 2d68 Generated table #858@1: 23267 keys, 2269497 bytes
+2024/03/13-22:19:12.684 2d68 Generated table #859@1: 13672 keys, 635501 bytes
+2024/03/13-22:19:12.684 2d68 Compacted 1@1 + 10@2 files => 20620337 bytes
+2024/03/13-22:19:12.685 2d68 compacted to: files[ 0 1 16 0 0 0 0 ]
+2024/03/13-22:19:12.685 2d68 Delete type=2 #835
+2024/03/13-22:19:12.685 2d68 Delete type=2 #836
+2024/03/13-22:19:12.685 2d68 Delete type=2 #837
+2024/03/13-22:19:12.685 2d68 Delete type=2 #838
+2024/03/13-22:19:12.685 2d68 Delete type=2 #839
+2024/03/13-22:19:12.686 2d68 Delete type=2 #840
+2024/03/13-22:19:12.686 2d68 Delete type=2 #841
+2024/03/13-22:19:12.686 2d68 Delete type=2 #842
+2024/03/13-22:19:12.686 2d68 Delete type=2 #843
+2024/03/13-22:19:12.686 2d68 Delete type=2 #844
+2024/03/13-22:19:12.686 2d68 Delete type=2 #847
+2024/03/13-22:19:12.686 2d68 Delete type=2 #848
+2024/03/13-22:20:21.871 4258 Level-0 table #861: started
+2024/03/13-22:20:21.900 4258 Level-0 table #861: 1071627 bytes OK
+2024/03/13-22:20:21.902 4258 Delete type=0 #846
+2024/03/13-22:20:40.973 4258 Compacting 1@0 + 1@1 files
+2024/03/13-22:20:41.026 4258 Generated table #862@0: 22613 keys, 501140 bytes
+2024/03/13-22:20:41.040 4258 Generated table #863@0: 5763 keys, 159627 bytes
+2024/03/13-22:20:41.041 4258 Compacted 1@0 + 1@1 files => 660767 bytes
+2024/03/13-22:20:41.041 4258 compacted to: files[ 0 2 16 0 0 0 0 ]
+2024/03/13-22:20:41.043 4258 Delete type=2 #849
+2024/03/13-22:20:41.043 4258 Delete type=2 #861
+2024/03/13-22:20:41.357 4258 Compacting 1@1 + 10@2 files
+2024/03/13-22:20:41.491 4258 Generated table #864@1: 84625 keys, 2234702 bytes
+2024/03/13-22:20:41.667 4258 Generated table #865@1: 98067 keys, 2250473 bytes
+2024/03/13-22:20:41.767 4258 Generated table #866@1: 76200 keys, 2378158 bytes
+2024/03/13-22:20:41.829 4258 Generated table #867@1: 17588 keys, 2203429 bytes
+2024/03/13-22:20:41.863 4258 Generated table #868@1: 2357 keys, 2152961 bytes
+2024/03/13-22:20:41.902 4258 Generated table #869@1: 2472 keys, 2153239 bytes
+2024/03/13-22:20:41.943 4258 Generated table #870@1: 2387 keys, 2152715 bytes
+2024/03/13-22:20:42.014 4258 Generated table #871@1: 17383 keys, 2201617 bytes
+2024/03/13-22:20:42.093 4258 Generated table #872@1: 23288 keys, 2269485 bytes
+2024/03/13-22:20:42.125 4258 Generated table #873@1: 13569 keys, 629690 bytes
+2024/03/13-22:20:42.125 4258 Compacted 1@1 + 10@2 files => 20626469 bytes
+2024/03/13-22:20:42.126 4258 compacted to: files[ 0 1 16 0 0 0 0 ]
+2024/03/13-22:20:42.126 4258 Delete type=2 #850
+2024/03/13-22:20:42.126 4258 Delete type=2 #851
+2024/03/13-22:20:42.126 4258 Delete type=2 #852
+2024/03/13-22:20:42.126 4258 Delete type=2 #853
+2024/03/13-22:20:42.126 4258 Delete type=2 #854
+2024/03/13-22:20:42.126 4258 Delete type=2 #855
+2024/03/13-22:20:42.126 4258 Delete type=2 #856
+2024/03/13-22:20:42.127 4258 Delete type=2 #857
+2024/03/13-22:20:42.127 4258 Delete type=2 #858
+2024/03/13-22:20:42.127 4258 Delete type=2 #859
+2024/03/13-22:20:42.127 4258 Delete type=2 #862

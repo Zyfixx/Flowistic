@@ -1,5 +1,5 @@
 const app = require('whatsapp-web.js')
-const db = require('quick.db')
+const qdb = require('quick.db')
 const cntr = require(`country-code-lookup`)
 
 const filters = ['-s', '-std', '-standard', '-t', '-taiko', '-c', '-catch', '-ctb', '-m', '-mania']
@@ -7,7 +7,7 @@ const filters = ['-s', '-std', '-standard', '-t', '-taiko', '-c', '-catch', '-ct
 module.exports = {
     name: 'osuprofile',
     description: 'idk',
-    async execute(message, args, client) {
+    async execute(message, args, client, db) {
 
     //function getUsername(args){
     //    console.log(args)
@@ -25,20 +25,21 @@ module.exports = {
     //    }
     //}
     console.log(args[1])
-    function getUsername(args){
+    async function getUsername(args){
         if(!args[1]) {
-            return db.get(`osuprofile_${message.author}`)
+            return await db.get(`osuprofile_${message.author}`)
         }else{
-            var name = args.slice(1).filter((word) => !filters.includes(word))
+            var name = args.slice(1).filter((word) => !filters.includes(word)).join("%20")
+            console.log(`Name filtered: ${name}`)
             if(name == "") {
-                return db.get(`osuprofile_${message.author}`)
+                return await db.get(`osuprofile_${message.author}`)
             }
             else{
                 return name
             }
         }
     }
-    function getMode(){
+    async function getMode(){
         if(args.includes("-s" || "-std" || '-standard')) {
             return 0
         }
@@ -52,19 +53,20 @@ module.exports = {
             return 3
         }
         else {
-            return db.get(`user_${message.author}_dgm`) || 0
+            return await db.get(`user_${message.author}_dgm`) || 0
         }
     }
 
 
 
         if(db.get(`osuprofile_${message.author}`) || args[1]) {
-            console.log(`Username: ${getUsername(args)}`)
-            console.log(`Mode: ${getMode()}`)
-            fetch(`https://osu.ppy.sh/api/get_user?k=${process.env.osuapi}&u=${getUsername(args)}&m=${getMode()}`).then(res => res.json())
+            const un = await getUsername(args);
+            const md = await getMode();
+            fetch(`https://osu.ppy.sh/api/get_user?k=${process.env.osuapi}&u=${un}&m=${md}`).then(res => res.json())
             .then(output => {
                 const user = output[0]
                 console.log(user)
+                if(!user.accuracy) return message.reply(`User not found!`)
                 var userAcc = parseFloat(user.accuracy)
                 var fixedAcc = userAcc.toFixed(2)
                 var levelpercent = 0 + user.level.substring( + user.level.indexOf("."));

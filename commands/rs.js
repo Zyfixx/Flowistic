@@ -1,5 +1,5 @@
 const app = require('whatsapp-web.js')
-const db = require('quick.db')
+const qdb = require('quick.db')
 const cntr = require(`country-code-lookup`)
 
 const filters = ['-s', '-std', '-standard', '-t', '-taiko', '-c', '-catch', '-ctb', '-m', '-mania']
@@ -38,20 +38,17 @@ const mods_enum = {
 };
 
 function getRank(current_rank) {
-    if(current_rank == 'XH') {
-        return 'Silver SS'
-    }
-    if(current_rank == 'X') {
-        return 'SS'
-    }
-    if(current_rank == 'SH') {
-        return 'Silver S'
-    }
-    if(current_rank == 'F') {
-        return 'Fail'
-    }
-    else {
-        return current_rank
+    switch (current_rank) {
+        case 'XH':
+            return 'Silver SS';
+        case 'X':
+            return 'SS';
+        case 'SH':
+            return 'Silver S';
+        case 'F':
+            return 'Fail';
+        default:
+            return current_rank;
     }
 }
 function getMods(enabled_mods){
@@ -67,44 +64,58 @@ function getMods(enabled_mods){
 module.exports = {
     name: 'rs',
     description: 'idk',
-    async execute(message, args, client) {
-        function getUsername(args){
-            if(!args[1]) {
-                return db.get(`osuprofile_${message.author}`)
-            }else{
-                var name = args.slice(1).filter((word) => !filters.includes(word))
-                if(name == "") {
-                    return db.get(`osuprofile_${message.author}`)
-                }
-                else{
-                    return name
-                }
+async execute(message, args, client, db) {
+    const getUsername = async (args) => {
+        if (!args[1]) {
+            return await db.get(`osuprofile_${message.author}`);
+        } else {
+            var name = args.slice(1).filter((word) => !filters.includes(word));
+            if (name == "") {
+                return await db.get(`osuprofile_${message.author}`);
+            } else {
+                return name;
             }
         }
-        function getMode(){
-            if(args.includes("-s" || "-std" || '-standard')) {
-                return 0
-            }
-            else if(args.includes("-t" || "-taiko")) {
-                return 1
-            }
-            else if(args.includes("-c" || "-ctb" || '-catch')) {
-                return 2
-            }
-            else if(args.includes("-m" || "-mania")) {
-                return 3
-            }
-            else {
-                return db.get(`user_${message.author}_dgm`) || 0
-            }
     }
 
-    if(db.get(`osuprofile_${message.author}`) || args[1]) {
-        fetch(`https://osu.ppy.sh/api/get_user_recent?k=${process.env.osuapi}&u=${getUsername(args)}&m=${getMode()}`).then(res => res.json())
-            .then(output => {
-                const res = output[0]
-                const text =
-`→ Beatmap Info
+    const getMode = async () => {
+        const modeMap = {
+            '-s': 0,
+            '-std': 0,
+            '-standard': 0,
+            '-t': 1,
+            '-tai': 1,
+            '-taiko': 1,
+            '-c': 2,
+            '-ctb': 2,
+            '-catch': 2,
+            '-m': 3,
+            '-man': 3,
+            '-mania': 3
+        };
+
+        for (const arg of args) {
+            if (modeMap[arg]) {
+                return modeMap[arg];
+            }
+        }
+
+        return await db.get(`user_${message.author}_dgm`) || 0;
+    }
+
+    if (await db.get(`osuprofile_${message.author}`) || args[1]) {
+        try {
+            const response = await fetch(
+                `https://osu.ppy.sh/api/get_user_recent?k=${process.env.osuapi}&u=${await getUsername(args)}&m=${await getMode()}`
+            );
+            const output = await response.json();
+            const res = output[0];
+
+            if (!res.beatmap_id) {
+                return message.reply("User didn't play in the last 24 hours");
+            }
+
+            const text = `→ Beatmap Info
 Beatmap ID: ${res.beatmap_id}
 Link: https://osu.ppy.sh/b/${res.beatmap_id}
 → Score Info
@@ -112,9 +123,13 @@ Score: ${res.score}
 Rank: ${getRank(res.rank)}
 Mods: ${getMods(res.enabled_mods)}
 Hitcount: [300: ${res.count300}, ${res.countgeki}], [100: ${res.count300}, ${res.countkatu}], [50: ${res.count50}], [Miss: ${res.countmiss}]
-`
-                client.sendMessage(message.from, text)
-            })
+`;
+
+            client.sendMessage(message.from, text);
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
+
 }

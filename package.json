@@ -1,35 +1,37 @@
 {
-  "name": "shinkai",
+  "name": "flowistic",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zyfixx/Flowistic.git"
+  },
   "author": "Zyfix",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zyfixx/Flowistic/issues"
+  },
+  "homepage": "https://github.com/Zyfixx/Flowistic#readme",
   "dependencies": {
-    "@deathabyss/wwebjs-sender": "^1.89.0",
-    "ag-psd": "^14.3.12",
-    "axios": "^0.27.2",
-    "country-code-lookup": "^0.0.20",
-    "dotenv": "^16.0.1",
-    "ffmpeg": "^0.0.4",
+    "@deathabyss/wwebjs-sender": "^1.93.2",
+    "better-sqlite3": "^8.4.0",
+    "country-code-lookup": "^0.1.0",
+    "dotenv": "^16.3.1",
     "fs": "^0.0.1-security",
-    "image-downloader": "^4.3.0",
-    "moment": "^2.29.3",
-    "moment-timezone": "^0.5.34",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.43",
     "ms": "^2.1.3",
-    "node-fetch": "^3.2.4",
-    "openai": "^3.0.0",
-    "psd.js": "^3.5.0-beta.4",
+    "puppeteer": "^20.7.4",
     "qrcode-terminal": "^0.12.0",
-    "quick.db": "^7.1.3",
+    "quick.db": "^9.1.7",
     "request": "^2.88.2",
-    "tic-tac-toe-js": "^0.0.2",
+    "spottydl": "^0.2.5",
     "tictactoe_model": "^1.0.4",
-    "tictactoe-board": "^1.2.2",
     "vm": "^0.1.0",
-    "whatsapp-web.js": "^1.16.6"
+    "whatsapp-web.js": "^1.21.0"
   }
 }
