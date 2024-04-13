@@ -12,6 +12,7 @@ const momentz = require('moment-timezone');
 const vm = require('vm')
 const wwebs = require('@deathabyss/wwebjs-sender')
 const ttt = require(`tictactoe_model`)
+const quoteAPI = require(`quote-indo`)
 const spot = require('spottydl')
 require(`dotenv`).config()
 let sessionCfg;
@@ -20,6 +21,9 @@ if (fs.existsSync(path)){
 }
 
 const client = new app.Client({
+    webVersionCache: {
+        remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2403.2-beta.html',
+        type: 'remote'},
     authStrategy: new app.LocalAuth(),
     ffmpegPath: './apps/ffmpeg.exe'
 });
@@ -92,6 +96,12 @@ client.on('message', async message => {
     }
     if(message.body.startsWith(`${prefix}osuprofile`)) {
         commands.get('osuprofile').execute(message, args, client, db)
+    }
+    if(message.body.startsWith(`${prefix}reup`)) {
+        commands.get('reup').execute(message, args, client, db)
+    }
+    if(message.body.startsWith(`${prefix}quotes`)) {
+        commands.get('quotes').execute(message, args, client, db)
     }
     if(message.body.startsWith(`${prefix}xp`)) {
         //console.log(await db.get(`guild_${message.from}_xp_${message.author}`))
@@ -199,6 +209,12 @@ Rank: ${rank}`)
     }
     if(message.body.startsWith(`${prefix}quran`)) {
         commands.get('quran').execute(message, args, client, db)
+    }
+    if(message.body.startsWith(`${prefix}spamtag`)) {
+        commands.get('spamtag').execute(message, args. client, db)
+    }
+    if(message.body.startsWith(`${prefix}spamchat`)) {
+        commands.get('spamchat').execute(message, args. client, db)
     }
     if(message.body.startsWith(`${prefix}qsurah`)) {
         commands.get('qsurah').execute(message, args, client, db)

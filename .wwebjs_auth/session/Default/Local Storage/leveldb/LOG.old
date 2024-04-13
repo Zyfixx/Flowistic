@@ -1,3 +1,2 @@
-2024/03/13-22:18:39.625 3334 Reusing MANIFEST C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
-2024/03/13-22:18:39.626 3334 Recovering log #12
-2024/03/13-22:18:39.628 3334 Reusing old log C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\Local Storage\leveldb/000012.log 
+2024/04/14-04:10:32.558 3b74 Creating DB C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\Local Storage\leveldb since it was missing.
+2024/04/14-04:10:32.580 3b74 Reusing MANIFEST C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001

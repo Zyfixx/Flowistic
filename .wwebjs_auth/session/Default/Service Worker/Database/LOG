@@ -1,3 +1,2 @@
-2024/03/13-22:57:55.688 5370 Reusing MANIFEST C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\Service Worker\Database/MANIFEST-000001
-2024/03/13-22:57:55.688 5370 Recovering log #3
-2024/03/13-22:57:55.690 5370 Reusing old log C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\Service Worker\Database/000003.log 
+2024/04/14-04:31:24.625 1758 Creating DB C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\Service Worker\Database since it was missing.
+2024/04/14-04:31:24.647 1758 Reusing MANIFEST C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\Service Worker\Database/MANIFEST-000001

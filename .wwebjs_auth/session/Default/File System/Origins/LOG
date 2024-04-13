@@ -1,3 +1,2 @@
-2024/03/13-22:57:59.786 3cf0 Reusing MANIFEST C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\File System\Origins/MANIFEST-000001
-2024/03/13-22:57:59.787 3cf0 Recovering log #3
-2024/03/13-22:57:59.787 3cf0 Reusing old log C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\File System\Origins/000003.log 
+2024/04/14-04:31:24.716 16a8 Creating DB C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\File System\Origins since it was missing.
+2024/04/14-04:31:24.726 16a8 Reusing MANIFEST C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\File System\Origins/MANIFEST-000001

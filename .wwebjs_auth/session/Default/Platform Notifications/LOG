@@ -1,3 +1,2 @@
-2024/03/13-22:57:55.678 255c Reusing MANIFEST C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\Platform Notifications/MANIFEST-000001
-2024/03/13-22:57:55.679 255c Recovering log #3
-2024/03/13-22:57:55.680 255c Reusing old log C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\Platform Notifications/000003.log 
+2024/04/14-04:31:50.390 16a8 Creating DB C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\Platform Notifications since it was missing.
+2024/04/14-04:31:50.400 16a8 Reusing MANIFEST C:\Users\User\Documents\GitHub\Flowistic\.wwebjs_auth\session\Default\Platform Notifications/MANIFEST-000001
