@@ -1,4 +1,4 @@
-aconst app = require('whatsapp-web.js')
+const app = require('whatsapp-web.js')
 const db = require('quick.db')
 
 module.exports = {

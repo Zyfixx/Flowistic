@@ -16,6 +16,6 @@ module.exports = {
         for(let i = 0; i < argss[1]; i++) {
             await chat.sendMessage(text, { mentions });
         }
-        console.log(args[1])
+        console.log(argss[1])
     }
 }

@@ -14,7 +14,11 @@ const wwebs = require('@deathabyss/wwebjs-sender')
 const ttt = require(`tictactoe_model`)
 const quoteAPI = require(`quote-indo`)
 const spot = require('spottydl')
+const Youtube = require(`simple-youtube-api`)
+const puppeteer = require('puppeteer')
+let browser;
 require(`dotenv`).config()
+
 let sessionCfg;
 if (fs.existsSync(path)){
     sessionCfg = require(path)
@@ -25,8 +29,13 @@ const client = new app.Client({
         remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2403.2-beta.html',
         type: 'remote'},
     authStrategy: new app.LocalAuth(),
-    ffmpegPath: './apps/ffmpeg.exe'
+    ffmpegPath: './apps/ffmpeg.exe',
+    puppeteer: {
+        executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+    }
+    
 });
+
 
 commands = new Map()
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'))
@@ -41,6 +50,7 @@ const get = function(command_name) {
     return data
 }
 
+
 const pagiTimeout = new Set();
 
 const timezones = ['Asia/Jakarta']
@@ -49,7 +59,8 @@ client.on('qr', (qr) => {
     qrc.generate(qr, {small: true})
 });
 
-client.on('ready', () => {
+client.on('ready', async () => {
+    browser = await puppeteer.launch({headless: "new"});
     console.log('Bot is ready!');
 });
 
@@ -193,15 +204,11 @@ Rank: ${rank}`)
         //    }
         //}
         //}
-        const chat = await message.getChat();
-        
-        let text = "";
+        let text = '';
         let mentions = [];
 
-        for(let participant of chat.participants) {
-            const contact = await client.getContactById(participant.id._serialized);
-            
-            mentions.push(contact);
+        for (let participant of chat.participants) {
+            mentions.push(`${participant.id.user}@c.us`);
             text += `@${participant.id.user} `;
         }
 
@@ -209,6 +216,9 @@ Rank: ${rank}`)
     }
     if(message.body.startsWith(`${prefix}quran`)) {
         commands.get('quran').execute(message, args, client, db)
+    }
+    if(message.body.startsWith(`${prefix}ytdl`)) {
+        commands.get('ytdl').execute(message, args, client, db)
     }
     if(message.body.startsWith(`${prefix}spamtag`)) {
         commands.get('spamtag').execute(message, args. client, db)
@@ -220,7 +230,7 @@ Rank: ${rank}`)
         commands.get('qsurah').execute(message, args, client, db)
     }
     if(message.body.startsWith(`${prefix}meme`)) {
-        commands.get('meme').execute(message, args, client, db)
+        commands.get('meme').execute(message, args, client, db, browser)
     }
     if(message.body.startsWith(`${prefix}dl`)) {
         commands.get('dl').execute(message, args, client, db)

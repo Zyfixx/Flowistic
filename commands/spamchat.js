@@ -11,7 +11,7 @@ module.exports = {
         let contact = await message.getMentions();
         let mentions = [];
         text = argss.slice(2).join(" ")
-        if(contact) {
+        if(contact.length >= 1) {
             mentions.push(contact[0]);
             for(let i = 0; i < argss[1]; i++) {
                 await chat.sendMessage(text, { mentions });

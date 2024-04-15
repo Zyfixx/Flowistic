@@ -18,7 +18,9 @@
   "homepage": "https://github.com/Zyfixx/Flowistic#readme",
   "dependencies": {
     "@deathabyss/wwebjs-sender": "^1.93.2",
+    "bc-dlp": "^2.0.0",
     "better-sqlite3": "^8.4.0",
+    "cheerio": "^1.0.0-rc.12",
     "country-code-lookup": "^0.1.0",
     "dotenv": "^16.3.1",
     "fs": "^0.0.1-security",
@@ -30,9 +32,12 @@
     "quick.db": "^9.1.7",
     "quote-indo": "^1.1.0",
     "request": "^2.88.2",
+    "simple-youtube-api": "^5.2.1",
     "spottydl": "^0.2.5",
     "tictactoe_model": "^1.0.4",
     "vm": "^0.1.0",
-    "whatsapp-web.js": "^1.21.0"
+    "whatsapp-web.js": "^1.21.0",
+    "youtube-dl-exec": "^3.0.0",
+    "ytdl-core": "^4.11.5"
   }
 }
