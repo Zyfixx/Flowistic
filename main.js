@@ -28,7 +28,10 @@ const client = new app.Client({
     webVersionCache: {
         remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2403.2-beta.html',
         type: 'remote'},
-    authStrategy: new app.LocalAuth(),
+    authStrategy: new app.RemoteAuth({
+        store: store,
+        backupSyncIntervalMs: 300000
+    }),
     ffmpegPath: './apps/ffmpeg.exe',
     puppeteer: {
         executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
